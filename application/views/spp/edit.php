@@ -29,20 +29,37 @@
                         Edit <?= $title; ?>
                     </div>
                     <div class="card-body">
-                        <form action="<?= base_url($link . '/' . $data['id_bimbel']); ?>" method="post" enctype="multipart/form-data">
+                        <form action="<?= base_url($link . '/' . $data['id_spp']); ?>" method="post" enctype="multipart/form-data">
                             <input type='hidden' name='_method' value='PUT' />
-                            
                             <div class="form-group">
-                                <label for="nama_bimbel">Nama Bimbel</label>
-                                <input type="text" class="form-control" id="nama_bimbel" name="nama_bimbel" value="<?= $data['nama_bimbel']; ?>" required placeholder="nama_bimbel">
+                                <label for="user">Username Siswa & Bimbelnya</label>
+                                <input type="text" class="form-control" id="id_user" name="id_user" hidden placeholder="user" value="<?= $data['id_user']; ?>">
+                                <select name="id_user" id="id_user" required class="form-control" disabled>
+                                    <?php foreach ($user as $d) : ?>
+                                        <?php if ($d['id'] == $data['id_user']) : ?>
+                                            <option selected value="<?= $d['id']; ?>"><?= $d['nama_lengkap']; ?> - <?= $d['nama_bimbel']; ?> <?= $d['cabang']; ?></option>
+                                        <?php else : ?>
+                                            <option value="<?= $d['id_user']; ?>"><?= $d['nama_lengkap']; ?> - <?= $d['nama_bimbel']; ?> <?= $d['cabang']; ?></option>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+                                </select>
                             </div>
-                            <?= form_error('nama_bimbel', '<div class="error text-danger mb-2" style="margin-top: -15px">', '</div>'); ?>
+                            <?= form_error('id_user', '<div class="error text-danger mb-2" style="margin-top: -15px">', '</div>'); ?>
                             <div class="form-group">
-                                <label for="cabang">Cabang</label>
-                                <input type="text" class="form-control" id="cabang" name="cabang" value="<?= $data['cabang']; ?>" required placeholder="cabang">
+                                <label for="nominal">Nominal</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Rp.</span>
+                                    </div>
+                                    <input type="text" class="form-control" id="nominal" name="nominal" required placeholder="nominal" value="<?= $data['nominal']; ?>">
+                                </div>
                             </div>
-                            <?= form_error('cabang', '<div class="error text-danger mb-2" style="margin-top: -15px">', '</div>'); ?>
-                            
+                            <?= form_error('nominal', '<div class="error text-danger mb-2" style="margin-top: -15px">', '</div>'); ?>
+                            <div class="form-group">
+                                <label for="jatuh_tempo">Jatuh Tempo</label>
+                                <input type="date" class="form-control" id="jatuh_tempo" name="jatuh_tempo" required placeholder="jatuh_tempo"  min="<?php echo date("Y-m-d"); ?>" value="<?= isset($data['jatuh_tempo']) ? date('Y-m-d', strtotime($data['jatuh_tempo'])) : ''; ?>">
+                            </div>
+                            <?= form_error('nominal', '<div class="error text-danger mb-2" style="margin-top: -15px">', '</div>'); ?>
                             <button type="submit" class="btn btn-primary">Submit</button>
                             <a href="<?= base_url($link); ?>" class="btn btn-secondary">Batal</a>
                         </form>

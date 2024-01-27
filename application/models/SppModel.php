@@ -1,9 +1,9 @@
 <?php
 
 
-require_once('application/models/BaseModel.php');
+require_once('application/models/TabModel.php');
 
-class SppModel extends BaseModel
+class SppModel extends TabModel
 {
     public $table            = 'tb_spp';
     public $primaryKey       = 'id_spp';

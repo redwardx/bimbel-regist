@@ -53,9 +53,13 @@
                             <?= form_error('email', '<div class="error text-danger mb-2" style="margin-top: -15px">', '</div>'); ?>
                             <div class="form-group">
                                 <label for="bimbel">Bimbel</label>
-                                <select name="id_bimbel" id="id_bimbel" class="form-control select2">
+                                <select name="id_bimbel" id="id_bimbel" required class="form-control">
                                     <?php foreach ($bimbel as $d) : ?>
-                                        <option value="<?= $d['id_bimbel']; ?>"><?= $d['nama_bimbel']; ?> - <?= $d['cabang']; ?></option>
+                                        <?php if ($d['id_bimbel'] == $data['id_bimbel']) : ?>
+                                            <option selected value="<?= $d['id_bimbel']; ?>"><?= $d['nama_bimbel']; ?> - <?= $d['cabang']; ?></option>
+                                        <?php else : ?>
+                                            <option value="<?= $d['id_bimbel']; ?>"><?= $d['nama_bimbel']; ?> - <?= $d['cabang']; ?></option>
+                                        <?php endif; ?>
                                     <?php endforeach; ?>
                                 </select>
                             </div>

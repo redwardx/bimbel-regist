@@ -11,6 +11,7 @@ class Spp extends CI_Controller
         parent::__construct();
         cekLogin();
         $this->load->model('SppModel', 'model');
+        $this->load->model('UserModel', 'user_model');
     }
 
     public function index()
@@ -21,14 +22,29 @@ class Spp extends CI_Controller
         $this->template->load('template/index', $this->view . '/index', $data);
     }
 
-    public function new()
+    public function new($id)
     {
+        $result = $this->user_model->find($id);
+
+        if (!$result) {
+            $this->alert->set('warning', 'Warning', 'Not Valid');
+            redirect($this->link, 'refresh');
+        }
+
         $data['title'] = $this->title;
         $data['link'] = $this->link;
-        $data['user'] = $this->model->getUser();
+        $data['userdata'] = $result;
+        $data['bimbel'] = $this->user_model->getBimbel();
         $this->template->load('template/index', $this->view . '/new', $data);
     }
 
+    public function user()
+    {
+        $data['title'] = $this->title;
+        $data['link'] = $this->link;
+        $data['userdata'] = $this->model->getUser();
+        $this->template->load('template/index', $this->view . '/user', $data);
+    }
 
     public function create()
     {
@@ -86,15 +102,10 @@ class Spp extends CI_Controller
         }
 
         $data = [
-            'id_user' => $this->input->post('id_user', true),
-            'id_bimbel' => $this->input->post('id_bimbel', true),
             'nominal' => $this->input->post('nominal', true),
             'jatuh_tempo' => $this->input->post('jatuh_tempo', true),
-            'status' => 0,
         ];
 
-        $this->form_validation->set_rules('id_user', 'Id User', 'required');
-        $this->form_validation->set_rules('id_bimbel', 'Id Bimbel', 'required');
         $this->form_validation->set_rules('nominal', 'Nominal', 'required');
         $this->form_validation->set_rules('jatuh_tempo', 'Jatuh Tempo', 'required');
 

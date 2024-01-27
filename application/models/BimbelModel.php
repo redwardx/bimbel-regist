@@ -1,9 +1,9 @@
 <?php
 
 
-require_once('application/models/BaseModel.php');
+require_once('application/models/TabModel.php');
 
-class BimbelModel extends BaseModel
+class BimbelModel extends TabModel
 {
     public $table            = 'tb_bimbel';
     public $primaryKey       = 'id_bimbel';

@@ -53,6 +53,11 @@
   }
 </script>
 <script>
+    $("#table1").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false
+    }).buttons().container().appendTo('#table2_wrapper .col-md-6:eq(0)');
+</script>
+<script>
     $("#table2").DataTable({
       "responsive": true, "lengthChange": false, "autoWidth": false,
       "buttons": ["copy", "excel", "pdf", "colvis"]
