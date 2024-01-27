@@ -47,7 +47,7 @@ $data_user = getProfile();
             <a href="<?= base_url('user'); ?>" class="nav-link <?= ($segment == 'user') ? 'active' : ''; ?>">
               <i class="nav-icon fas fa-users"></i>
               <p>
-                Kelola User
+                Data User
               </p>
             </a>
           </li>
@@ -55,7 +55,15 @@ $data_user = getProfile();
             <a href="<?= base_url('bimbel'); ?>" class="nav-link <?= ($segment == 'bimbel') ? 'active' : ''; ?>">
               <i class="nav-icon fas fa-building"></i>
               <p>
-                Kelola Bimbel
+                Data Bimbel
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="<?= base_url('spp'); ?>" class="nav-link <?= ($segment == 'spp') ? 'active' : ''; ?>">
+              <i class="nav-icon fas fa-credit-card"></i>
+              <p>
+                Pembayaran SPP
               </p>
             </a>
           </li>

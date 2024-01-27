@@ -39,7 +39,7 @@
                                         <th>Nama Lengkap</th>
                                         <th>Bimbel</th>
                                         <th>Cabang</th>
-                                        <th>Action</th>
+                                        <th> </th>
                                     </tr>
                                 </thead>
                                 <tbody>

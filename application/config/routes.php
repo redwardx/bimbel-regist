@@ -76,3 +76,11 @@ $route['bimbel/(:any)/edit']['get'] = 'bimbel/edit/$1';
 $route['bimbel/(:any)']['get'] = 'bimbel/edit/$1';
 $route['bimbel/(:any)']['post'] = 'bimbel/update/$1';
 $route['bimbel/(:any)/delete'] = 'bimbel/delete/$1';
+
+$route['spp']['get'] = 'spp/index';
+$route['spp']['post'] = 'spp/create';
+$route['spp/new']['get'] = 'spp/new';
+$route['spp/(:any)/edit']['get'] = 'spp/edit/$1';
+$route['spp/(:any)']['get'] = 'spp/edit/$1';
+$route['spp/(:any)']['post'] = 'spp/update/$1';
+$route['spp/(:any)/delete'] = 'spp/delete/$1';

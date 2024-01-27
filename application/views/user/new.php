@@ -52,7 +52,16 @@
                             </div>
                             <?= form_error('email', '<div class="error text-danger mb-2" style="margin-top: -15px">', '</div>'); ?>
                             <div class="form-group">
-                                <label for="email">Role</label>
+                                <label for="bimbel">Bimbel</label>
+                                <select name="id_bimbel" id="id_bimbel" class="form-control select2">
+                                    <?php foreach ($bimbel as $d) : ?>
+                                        <option value="<?= $d['id_bimbel']; ?>"><?= $d['nama_bimbel']; ?> - <?= $d['nama_bimbel']; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                            <?= form_error('id_bimbel', '<div class="error text-danger mb-2" style="margin-top: -15px">', '</div>'); ?>
+                            <div class="form-group">
+                                <label for="role">Role</label>
                                 <select name="id_role" id="id_role" class="form-control">
                                     <?php foreach ($role as $d) : ?>
                                         <option value="<?= $d['id']; ?>"><?= $d['nama_role']; ?></option>

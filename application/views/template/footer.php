@@ -26,6 +26,9 @@
 <script src="<?= base_url(); ?>assets/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="<?= base_url(); ?>assets/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 
+<!-- Select2 -->
+<script src="<?= base_url(); ?>assets/plugins/select2/js/select2.full.min.js"></script>
+
 
 <?= $this->alert->init('jquery'); ?>
 
@@ -54,4 +57,11 @@
       "responsive": true, "lengthChange": false, "autoWidth": false,
       "buttons": ["copy", "excel", "pdf", "colvis"]
     }).buttons().container().appendTo('#table2_wrapper .col-md-6:eq(0)');
+</script>
+<script>
+    $(function () {
+      $('.select2').select2({
+        theme: 'bootstrap4'
+      })
+    });
 </script>

@@ -26,6 +26,7 @@ class User extends CI_Controller
         $data['title'] = $this->title;
         $data['link'] = $this->link;
         $data['role'] = $this->model->getRole();
+        $data['bimbel'] = $this->model->getBimbel();
         $this->template->load('template/index', $this->view . '/new', $data);
     }
 
@@ -37,12 +38,7 @@ class User extends CI_Controller
         $this->form_validation->set_rules('nama_lengkap', 'Nama Lengkap', 'required');
         $this->form_validation->set_rules('id_bimbel', 'Id Bimbel', 'required');
         $this->form_validation->set_rules('id_role', 'Id Role', 'required');
-        $this->form_validation->set_rules(
-            'password',
-            'Password',
-            'required',
-            array('required' => 'You must provide a %s.')
-        );
+        $this->form_validation->set_rules('password','Password','required',array('required' => 'You must provide a %s.'));
 
 
         if ($this->form_validation->run() == FALSE) {
@@ -53,6 +49,7 @@ class User extends CI_Controller
                 'password' => password_hash($this->input->post('password', true), PASSWORD_DEFAULT),
                 'nama_lengkap' => $this->input->post('nama_lengkap', true),
                 'email' => $this->input->post('email', true),
+                'id_bimbel' => $this->input->post('id_bimbel', true),
                 'id_role' => $this->input->post('id_role', true),
                 'is_active' => 1,
             ];
