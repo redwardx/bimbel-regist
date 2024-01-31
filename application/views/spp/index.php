@@ -23,7 +23,7 @@
         <!-- Small boxes (Stat box) -->
         <div class="row">
             <div class="col-12">
-                <a href="<?= base_url($link . '/user'); ?>" class="btn btn-primary btn-sm mb-2">Tambah</a>
+                <a href="<?= base_url($link . '/siswa'); ?>" class="btn btn-primary btn-sm mb-2">Input</a>
                 <div class="card">
                     <div class="card-header">
                         Data Pembayaran <?= $title; ?>
@@ -33,11 +33,11 @@
                             <table class="table table-striped table-bordered" id="table2">
                                 <thead>
                                     <tr>
-                                        <th>No</th>
+                                        <th>No.</th>
+                                        <th>NISN</th>
                                         <th>Nama Lengkap</th>
                                         <th>Bimbel</th>
                                         <th>Cabang</th>
-                                        <th>Status</th>
                                         <th> </th>
                                     </tr>
                                 </thead>
@@ -46,23 +46,14 @@
                                     foreach ($data as $d) : ?>
                                         <tr>
                                             <td><?= $a++; ?></td>
-                                            <td><?= $d['nama_lengkap']; ?></td>
+                                            <td><?= $d['nisn']; ?></td>
+                                            <td><?= $d['nama_siswa']; ?></td>
                                             <td><?= $d['nama_bimbel']; ?></td>
                                             <td><?= $d['cabang']; ?></td>
                                             <td>
-                                                <?php 
-                                                    if ($d['status'] == 1) {
-                                                        echo 'Lunas';
-                                                    } elseif (strtotime($d['jatuh_tempo']) < strtotime(date('Y-m-d'))) {
-                                                        echo 'Lewat Jatuh Tempo';
-                                                    } else {
-                                                        echo 'Belum Lunas';
-                                                    }
-                                                ?>
-                                            </td>
-                                            <td>
-                                                <a class="btn btn-warning btn-sm mb-2" href="<?= base_url($link . '/' . $d['id_spp'] . '/edit'); ?>">Edit</a>
-                                                <a class="btn btn-danger btn-sm mb-2 del-tombol" href="<?= base_url($link . '/' . $d['id_spp'] . '/delete'); ?>">Delete</a>
+                                                <a class="btn btn-outline-info btn-sm mb-2" href="<?= base_url(); ?>assets/uploads/bukti/<?= $d['bukti']; ?>">Lihat Bukti</a>
+                                                <a class="btn btn-outline-success btn-sm mb-2" href="<?= base_url($link . '/' . $d['id_spp'] . '/print'); ?>">Cetak</a>
+                                                <!---<a class="btn btn-danger btn-sm mb-2 del-tombol" href="<?= base_url($link . '/' . $d['id_spp'] . '/delete'); ?>">Delete</a>--->
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

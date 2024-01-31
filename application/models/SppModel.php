@@ -27,8 +27,18 @@ class SppModel extends TabModel
         return $this->db->get('tb_user')->result_array();
     }
 
+    public function getSiswa($id_bimbel = null)
+    {
+        $this->db->join('tb_bimbel', 'tb_siswa.id_bimbel = tb_bimbel.id_bimbel');
+        if ($id_bimbel != null) {
+            $this->db->where('id_bimbel', $id_bimbel);
+        }
+        return $this->db->get('tb_siswa')->result_array();
+    }
+
     public function getBimbel()
     {
+        $this->db->where('id_bimbel !=', 1);
         return $this->db->get('tb_bimbel')->result_array();
     }
 

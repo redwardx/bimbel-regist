@@ -23,6 +23,45 @@ class UserModel extends BaseModel
         parent::__construct();
     }
 
+    public function find($id)
+    {
+        $this->db->where($this->table . '.' . $this->primaryKey, $id);
+
+        $this->checkDeleted('tb_user');
+
+        if ($this->returnType == 'array') {
+            $data = $this->db->get($this->table)->row_array();
+        } else {
+            $data = $this->db->get($this->table)->row();
+        }
+        return $data;
+    }
+
+    public function findAll()
+    {
+        $this->checkDeleted('tb_user');
+
+        if ($this->returnType == 'array') {
+            $data = $this->db->get($this->table)->result_array();
+        } else {
+            $data = $this->db->get($this->table)->result();
+        }
+        return $data;
+    }
+
+    public function first()
+    {
+        $this->db->limit(1);
+        $this->checkDeleted('tb_user');
+
+        if ($this->returnType == 'array') {
+            $data = $this->db->get($this->table)->row_array();
+        } else {
+            $data = $this->db->get($this->table)->row();
+        }
+        return $data;
+    }
+
     public function getUserLogin($username)
     {
         $this->db->select('tb_user.*, nama_role, nama_bimbel');

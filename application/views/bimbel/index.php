@@ -47,8 +47,9 @@
                                             <td><?= $d['nama_bimbel']; ?></td>
                                             <td><?= $d['cabang']; ?></td>
                                             <td>
-                                                <a class="btn btn-warning btn-sm mb-2" href="<?= base_url($link . '/' . $d['id_bimbel'] . '/edit'); ?>">Edit</a>
-                                                <a class="btn btn-danger btn-sm mb-2 del-tombol" href="<?= base_url($link . '/' . $d['id_bimbel'] . '/delete'); ?>">Delete</a>
+                                                <a class="btn btn-secondary btn-sm mb-2" href="<?= base_url($link . '/' . $d['id_bimbel'] . '/detail'); ?>">Detail</a>
+                                                <!---<a class="btn btn-warning btn-sm mb-2" href="<?= base_url($link . '/' . $d['id_bimbel'] . '/edit'); ?>">Edit</a>
+                                                <a class="btn btn-danger btn-sm mb-2 del-tombol" href="<?= base_url($link . '/' . $d['id_bimbel'] . '/delete'); ?>">Delete</a>--->
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

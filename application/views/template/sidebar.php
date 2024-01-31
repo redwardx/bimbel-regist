@@ -59,7 +59,18 @@ $data_user = getProfile();
               </p>
             </a>
           </li>
+        <?php else : ?>
           <li class="nav-item">
+            <a href="<?= base_url('siswa'); ?>" class="nav-link <?= ($segment == 'siswa') ? 'active' : ''; ?>">
+              <i class="nav-icon fas fa-graduation-cap"></i>
+              <p>
+                Siswa
+              </p>
+            </a>
+          </li>
+        <?php endif; ?>
+
+        <li class="nav-item">
             <a href="<?= base_url('spp'); ?>" class="nav-link <?= ($segment == 'spp') ? 'active' : ''; ?>">
               <i class="nav-icon fas fa-credit-card"></i>
               <p>
@@ -67,8 +78,6 @@ $data_user = getProfile();
               </p>
             </a>
           </li>
-
-        <?php endif; ?>
         <li class="nav-item  <?= ($segment == 'profile' || $segment == 'gantipass') ? 'menu-open' : ''; ?>">
           <a href="#" class="nav-link">
             <i class="nav-icon fas fa-user"></i>

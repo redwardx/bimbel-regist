@@ -42,45 +42,6 @@ class BaseModel extends CI_Model
         return $this;
     }
 
-    public function find($id)
-    {
-        $this->db->where($this->table . '.' . $this->primaryKey, $id);
-
-        $this->checkDeleted();
-
-        if ($this->returnType == 'array') {
-            $data = $this->db->get($this->table)->row_array();
-        } else {
-            $data = $this->db->get($this->table)->row();
-        }
-        return $data;
-    }
-
-    public function findAll()
-    {
-        $this->checkDeleted();
-
-        if ($this->returnType == 'array') {
-            $data = $this->db->get($this->table)->result_array();
-        } else {
-            $data = $this->db->get($this->table)->result();
-        }
-        return $data;
-    }
-
-    public function first()
-    {
-        $this->db->limit(1);
-        $this->checkDeleted();
-
-        if ($this->returnType == 'array') {
-            $data = $this->db->get($this->table)->row_array();
-        } else {
-            $data = $this->db->get($this->table)->row();
-        }
-        return $data;
-    }
-
     public function orderBy($column, $sort = 'ASC')
     {
         $this->db->order_by($column, $sort);
@@ -122,7 +83,6 @@ class BaseModel extends CI_Model
         if ($this->useSoftDeletes == true) {
             $data[$this->deletedField] = date('Y-m-d H:i:s');
 
-
             return $this->update($id, $data);
         } else {
             return $this->db->delete($this->table);
@@ -141,14 +101,14 @@ class BaseModel extends CI_Model
         return $this;
     }
 
-    public function checkDeleted()
+    public function checkDeleted($tableAlias)
     {
         if ($this->onlyDeleted == true) {
-            $this->db->where("$this->deletedField IS NOT NULL");
+            $this->db->where("$tableAlias.$this->deletedField IS NOT NULL");
         } else {
             if ($this->withDeleted == false) {
                 if ($this->useSoftDeletes == true) {
-                    $this->db->where("$this->deletedField IS NULL");
+                    $this->db->where("$tableAlias.$this->deletedField IS NULL");
                 }
             }
         }

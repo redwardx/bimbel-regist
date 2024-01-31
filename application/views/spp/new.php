@@ -1,3 +1,6 @@
+<?php
+$data_user = getProfile();
+?>
 <!-- Content Header (Page header) -->
 <div class="content-header">
     <div class="container-fluid">
@@ -32,22 +35,22 @@
                         <form action="<?= base_url($link); ?>" method="post" enctype="multipart/form-data">
                             <input type='hidden' name='_method' value='PUT' />
                             <div class="form-group">
-                                <label for="username">Username</label>
-                                <input type="text" class="form-control" id="id_user" name="id_user" hidden placeholder="Username" value="<?= $userdata['id']; ?>">
-                                <input type="text" class="form-control" id="username" name="username" disabled placeholder="Username" value="<?= $userdata['username']; ?>">
+                                <label for="nisn">NISN</label>
+                                <input type="text" class="form-control" id="id_siswa" name="id_siswa" hidden placeholder="nisn" value="<?= $userdata['id_siswa']; ?>">
+                                <input type="text" class="form-control" id="id_user" name="id_user" hidden placeholder="nisn" value="<?= $data_user['id']; ?>">
+                                <input type="text" class="form-control" id="nisn" name="nisn" disabled placeholder="nisn" value="<?= $userdata['nisn']; ?>">
                             </div>
-                            <?= form_error('username', '<div class="error text-danger mb-2" style="margin-top: -15px">', '</div>'); ?>
+                            <?= form_error('nisn', '<div class="error text-danger mb-2" style="margin-top: -15px">', '</div>'); ?>
                             <div class="form-group">
-                                <label for="nama_lengkap">Nama Lengkap</label>
-                                <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" disabled value="<?= $userdata['nama_lengkap']; ?>" required placeholder="nama_lengkap">
+                                <label for="nama_siswa">Nama Lengkap</label>
+                                <input type="text" class="form-control" id="nama_siswa" name="nama_siswa" disabled value="<?= $userdata['nama_siswa']; ?>" required placeholder="nama_lengkap">
                             </div>
-                            
-                            <?= form_error('id_bimbel', '<div class="error text-danger mb-2" style="margin-top: -15px">', '</div>'); ?>
+                            <?= form_error('nama_siswa', '<div class="error text-danger mb-2" style="margin-top: -15px">', '</div>'); ?>
                             <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" class="form-control" id="email" name="email" disabled value="<?= $userdata['email']; ?>" required placeholder="email">
+                                <label for="alamat">alamat</label>
+                                <input type="text" class="form-control" id="alamat" name="alamat" disabled value="<?= $userdata['alamat']; ?>" required placeholder="alamat">
                             </div>
-                            <?= form_error('email', '<div class="error text-danger mb-2" style="margin-top: -15px">', '</div>'); ?>
+                            <?= form_error('alamat', '<div class="error text-danger mb-2" style="margin-top: -15px">', '</div>'); ?>
                             <div class="form-group">
                                 <label for="bimbel">Bimbel</label>
                                 <input type="text" class="form-control" id="id_bimbel" name="id_bimbel" hidden placeholder="Bimbel" value="<?= $userdata['id_bimbel']; ?>">
@@ -72,12 +75,12 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="jatuh_tempo">Jatuh Tempo</label>
-                                <input type="date" class="form-control" id="jatuh_tempo" name="jatuh_tempo" required placeholder="jatuh_tempo"  min="<?php echo date("Y-m-d"); ?>">
+                                <label for="image">Bukti Pembayaran</label>
+                                <input type="file" class="form-control" id="image" name="image" accept="image/png, image/gif, image/jpeg">
                             </div>
                             <?= form_error('nominal', '<div class="error text-danger mb-2" style="margin-top: -15px">', '</div>'); ?>
                             <button type="submit" class="btn btn-primary">Submit</button>
-                            <a href="<?= base_url($link . '/user'); ?>" class="btn btn-secondary">Kembali</a>
+                            <a href="<?= base_url($link . '/siswa'); ?>" class="btn btn-secondary">Kembali</a>
                         </form>
                     </div>
                 </div>

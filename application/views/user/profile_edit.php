@@ -51,7 +51,7 @@
                                     <img class="rounded-circle img-thumbnail d-block mb-2" width="120" src="<?= base_url(); ?>assets/uploads/users/<?= $data['image']; ?>" alt="">
 
                                 </div>
-                                <input type="file" class="form-control" id="image" name="image" onchange="previewImage(this, '#imagePreview')">
+                                <input type="file" class="form-control" id="image" name="image" accept="image/png, image/gif, image/jpeg" onchange="previewImage(this, '#imagePreview')">
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                             <a href="<?= base_url('profile'); ?>" class="btn btn-secondary">Batal</a>

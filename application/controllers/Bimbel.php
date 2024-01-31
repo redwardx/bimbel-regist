@@ -11,13 +11,14 @@ class Bimbel extends CI_Controller
         parent::__construct();
         cekLogin();
         $this->load->model('BimbelModel', 'model');
+        $this->load->model('SiswaModel', 'siswa_model');
     }
 
     public function index()
     {
         $data['title'] = $this->title;
         $data['link'] = $this->link;
-        $data['data'] = $this->model->select('tb_bimbel.*')->findAll();
+        $data['data'] = $this->model->select('tb_bimbel.*')->where('id_bimbel !=', 1)->findAll();
         $this->template->load('template/index', $this->view . '/index', $data);
     }
 
@@ -49,6 +50,21 @@ class Bimbel extends CI_Controller
             }
             redirect($this->link, 'refresh');
         }
+    }
+
+    public function detail($id)
+    {
+        $result = $this->model->find($id);
+
+        if (!$result) {
+            $this->alert->set('warning', 'Warning', 'Not Valid');
+            redirect($this->link, 'refresh');
+        }
+        $data['title'] = $this->title;
+        $data['link'] = $this->link;
+        $data['data'] = $result;
+        $data['siswa'] = $this->siswa_model->select('tb_siswa.*')->where('id_bimbel', $id)->findAll();
+        $this->template->load('template/index', $this->view . '/detail', $data);
     }
 
     public function edit($id)

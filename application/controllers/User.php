@@ -180,9 +180,6 @@ class User extends CI_Controller
     }
 
 
-
-
-
     public function delete($id)
     {
         $result = $this->model->find($id);
@@ -225,7 +222,7 @@ class User extends CI_Controller
 
     public function prosesGantipass()
     {
-        $result = $this->model->find($this->session->modeldata('id_user'));
+        $result = $this->model->find($this->session->userdata('id_user'));
 
 
         $password_lama = $this->input->post('password_lama', true);
@@ -238,7 +235,7 @@ class User extends CI_Controller
                     'password' => password_hash($password_baru, PASSWORD_DEFAULT)
                 ];
 
-                $this->model->update($this->session->modeldata('id_role'), $data);
+                $this->model->update($this->session->userdata('id_role'), $data);
                 $this->alert->set('success', 'Success', 'Password Change');
             } else {
                 $this->alert->set('warning', 'Warning', 'Password Baru Beda');
@@ -264,13 +261,13 @@ class User extends CI_Controller
     {
         $data['title'] = 'Profile Edit';
         $user_id = $this->session->userdata('id_user');
-        $data['data'] = $this->model->select('tb_user.*, nama_role, nama_bimbel')->join('tb_role', 'tb_role.id = tb_user.id_role')>join('tb_bimbel', 'tb_bimbel.id_bimbel = tb_user.id_bimbel')->find($user_id);
+        $data['data'] = $this->model->select('tb_user.*, nama_role, nama_bimbel')->join('tb_role', 'tb_role.id = tb_user.id_role')->join('tb_bimbel', 'tb_bimbel.id_bimbel = tb_user.id_bimbel')->find($user_id);
         $this->template->load('template/index', $this->view . '/profile_edit', $data);
     }
 
     public function prosesProfile()
     {
-        $result = $this->model->find($this->session->modeldata('id_user'));
+        $result = $this->model->find($this->session->userdata('id_user'));
 
         $data = [
             'email' => $this->input->post('email'),
@@ -316,7 +313,7 @@ class User extends CI_Controller
                 }
             }
 
-            $res = $this->model->update($this->session->modeldata('id_user'), $data);
+            $res = $this->model->update($this->session->userdata('id_user'), $data);
 
             if ($res) {
                 $this->alert->set('success', 'Success', 'Update Success');
