@@ -19,7 +19,14 @@ class Bimbel extends CI_Controller
         $data['title'] = $this->title;
         $data['link'] = $this->link;
         $data['data'] = $this->model->select('tb_bimbel.*')->where('id_bimbel !=', 1)->findAll();
-        $this->template->load('template/index', $this->view . '/index', $data);
+        $id_role = $this->session->userdata('id_role');
+        if ($id_role == 1) {
+            $this->template->load('template/index', $this->view . '/index', $data);
+        }
+        if ($id_role == 2) {
+            $this->alert->set('warning', 'Warning', 'Kamu tidak memiliki akses!');
+            redirect('dashboard', 'refresh');
+        }
     }
 
     public function new()

@@ -91,7 +91,6 @@ $route['spp']['get'] = 'spp/index';
 $route['spp']['post'] = 'spp/create';
 $route['spp/new']['get'] = 'spp/new';
 $route['spp/(:any)/print']['get'] = 'spp/print/$1';
-$route['spp/(:any)']['get'] = 'spp/print/$1';
 $route['spp/siswa']['get'] = 'spp/siswa';
 $route['spp/(:any)/new']['get'] = 'spp/new/$1';
 $route['spp/(:any)/delete'] = 'spp/delete/$1';

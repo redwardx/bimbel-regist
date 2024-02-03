@@ -21,6 +21,7 @@ class SppModel extends TabModel
     {
         $this->db->where('id_role', 2);
         $this->db->join('tb_bimbel', 'tb_user.id_bimbel = tb_bimbel.id_bimbel');
+        $this->db->where('tb_user.deleted_at', null);
         if ($id_bimbel != null) {
             $this->db->where('id_bimbel', $id_bimbel);
         }
@@ -30,6 +31,7 @@ class SppModel extends TabModel
     public function getSiswa($id_bimbel = null)
     {
         $this->db->join('tb_bimbel', 'tb_siswa.id_bimbel = tb_bimbel.id_bimbel');
+        $this->db->where('tb_siswa.deleted_at', null);
         if ($id_bimbel != null) {
             $this->db->where('id_bimbel', $id_bimbel);
         }
@@ -39,6 +41,7 @@ class SppModel extends TabModel
     public function getBimbel()
     {
         $this->db->where('id_bimbel !=', 1);
+        $this->db->where('deleted_at', null);
         return $this->db->get('tb_bimbel')->result_array();
     }
 
@@ -54,5 +57,31 @@ class SppModel extends TabModel
             $this->db->where('id_bimbel', $id_bimbel);
         }
         return $this->db->get('tb_spp')->result_array();
+    }
+
+    public function getNom($id_bimbel = null, $tanggal = null)
+    {
+        $this->db->select('tb_spp.*, SUM(nominal) as total_nominal');
+        if ($tanggal != null) {
+            $this->db->where('DATE(tgl_input)', $tanggal);
+        }
+        $this->db->join('tb_bimbel', 'tb_spp.id_bimbel = tb_bimbel.id_bimbel');
+        if ($id_bimbel != null) {
+            $this->db->where('tb_spp.id_bimbel', $id_bimbel);
+        }
+        return $this->db->get('tb_spp')->row_array();
+    }
+
+    public function getTrx($id_bimbel = null, $tanggal = null)
+    {
+        $this->db->select('count(*) as trx');
+        if ($tanggal != null) {
+            $this->db->where('DATE(tgl_input)', $tanggal);
+        }
+        $this->db->join('tb_bimbel', 'tb_spp.id_bimbel = tb_bimbel.id_bimbel');
+        if ($id_bimbel != null) {
+            $this->db->where('tb_spp.id_bimbel', $id_bimbel);
+        }
+        return $this->db->get('tb_spp')->row_array();
     }
 }

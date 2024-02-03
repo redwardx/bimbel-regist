@@ -21,33 +21,51 @@
   <div class="container-fluid">
     <!-- Small boxes (Stat box) -->
     <div class="row">
-      <div class="col-lg-3 col-6">
-        <!-- small box -->
-        <div class="small-box bg-info">
-          <div class="inner">
-            <h3>150</h3>
+      <?php if ($this->session->userdata('id_role') == 1) : ?>
+        <div class="col-lg-3 col-6">
+          <!-- small box -->
+          <div class="small-box bg-info">
+            <div class="inner">
+              <h3><?php echo $bimbelCount; ?></h3>
 
-            <p>New Orders</p>
+              <p>Jumlah Bimbel</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-bag"></i>
+            </div>
+            <a href="bimbel" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
-          <div class="icon">
-            <i class="ion ion-bag"></i>
-          </div>
-          <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
         </div>
-      </div>
+      <?php else : ?>
+        <div class="col-lg-3 col-6">
+          <!-- small box -->
+          <div class="small-box bg-info">
+            <div class="inner">
+              <h3>Rp. <?php echo $totalNominal; ?></h3>
+
+              <p>Total Pendapatan</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-bag"></i>
+            </div>
+            <a href="spp" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+      <?php endif; ?>
+
       <!-- ./col -->
       <div class="col-lg-3 col-6">
         <!-- small box -->
         <div class="small-box bg-success">
           <div class="inner">
-            <h3>53<sup style="font-size: 20px">%</sup></h3>
+            <h3><?php echo $siswaCount; ?></h3>
 
-            <p>Bounce Rate</p>
+            <p>Jumlah Siswa</p>
           </div>
           <div class="icon">
             <i class="ion ion-stats-bars"></i>
           </div>
-          <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+          <a href="siswa" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
         </div>
       </div>
       <!-- ./col -->
@@ -55,14 +73,14 @@
         <!-- small box -->
         <div class="small-box bg-warning">
           <div class="inner">
-            <h3>44</h3>
+            <h3>Rp. <?php echo !empty($totalNominalToday) ? $totalNominalToday : '0'; ?></h3>
 
-            <p>User Registrations</p>
+            <p>Pendapatan Hari Ini</p>
           </div>
           <div class="icon">
             <i class="ion ion-person-add"></i>
           </div>
-          <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+          <a href="spp" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
         </div>
       </div>
       <!-- ./col -->
@@ -70,14 +88,14 @@
         <!-- small box -->
         <div class="small-box bg-danger">
           <div class="inner">
-            <h3>65</h3>
+            <h3><?php echo $trxToday; ?></h3>
 
-            <p>Unique Visitors</p>
+            <p>Input Hari Ini</p>
           </div>
           <div class="icon">
             <i class="ion ion-pie-graph"></i>
           </div>
-          <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+          <a href="spp" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
         </div>
       </div>
       <!-- ./col -->
