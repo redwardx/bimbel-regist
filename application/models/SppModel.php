@@ -59,14 +59,14 @@ class SppModel extends TabModel
         return $this->db->get('tb_spp')->result_array();
     }
 
-    public function getNom($id_bimbel = null, $tanggal = null)
+    public function getNom($id_bimbel = 1, $tanggal = null)
     {
         $this->db->select('tb_spp.*, SUM(nominal) as total_nominal');
         if ($tanggal != null) {
             $this->db->where('DATE(tgl_input)', $tanggal);
         }
         $this->db->join('tb_bimbel', 'tb_spp.id_bimbel = tb_bimbel.id_bimbel');
-        if ($id_bimbel != null) {
+        if ($id_bimbel != 1) {
             $this->db->where('tb_spp.id_bimbel', $id_bimbel);
         }
         return $this->db->get('tb_spp')->row_array();

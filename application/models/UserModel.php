@@ -80,6 +80,7 @@ class UserModel extends BaseModel
 
     public function getBimbel()
     {
+        $this->db->where('tb_bimbel.deleted_at', null);
         return $this->db->get('tb_bimbel')->result_array();
     }
 

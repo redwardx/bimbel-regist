@@ -2,14 +2,11 @@
 <div class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
-            <div class="col-sm-6">
+            <div class="col-sm-11">
                 <h1 class="m-0">Pembayaran <?= $title; ?></h1>
             </div><!-- /.col -->
-            <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="<?= base_url(); ?>">Home</a></li>
-                    <li class="breadcrumb-item">Pembayaran <?= $title; ?></li>
-                </ol>
+            <div class="col-sm-1">
+                <a href="<?= base_url($link . '/siswa'); ?>" class="btn btn-primary btn-sm mb-2">Input Data</a>
             </div>
             <!-- /.col -->
         </div><!-- /.row -->
@@ -22,8 +19,7 @@
     <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <div class="row">
-            <div class="col-12">
-                <a href="<?= base_url($link . '/siswa'); ?>" class="btn btn-primary btn-sm mb-2">Input</a>
+            <div class="col-12">        
                 <div class="card">
                     <div class="card-header">
                         Data Pembayaran <?= $title; ?>
@@ -38,6 +34,8 @@
                                         <th>Nama Lengkap</th>
                                         <th>Bimbel</th>
                                         <th>Cabang</th>
+                                        <th>Nominal</th>
+                                        <th>Tanggal</th>
                                         <th> </th>
                                     </tr>
                                 </thead>
@@ -50,6 +48,8 @@
                                             <td><?= $d['nama_siswa']; ?></td>
                                             <td><?= $d['nama_bimbel']; ?></td>
                                             <td><?= $d['cabang']; ?></td>
+                                            <td><?= $d['nominal']; ?></td>
+                                            <td><?= $d['tgl_input']; ?></td>
                                             <td>
                                                 <a class="btn btn-outline-info btn-sm mb-2" href="<?= base_url(); ?>assets/uploads/bukti/<?= $d['bukti']; ?>">Lihat Bukti</a>
                                                 <a class="btn btn-outline-success btn-sm mb-2" href="<?= base_url($link . '/' . $d['id_spp'] . '/print'); ?>">Cetak</a>

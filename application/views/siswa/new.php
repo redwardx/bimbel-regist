@@ -5,15 +5,11 @@ $data_user = getProfile();
 <div class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
-            <div class="col-sm-6">
+            <div class="col-sm-11">
                 <h1 class="m-0">New <?= $title; ?></h1>
             </div><!-- /.col -->
-            <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="<?= base_url(); ?>">Home</a></li>
-                    <li class="breadcrumb-item">Kelola <?= $title; ?></li>
-                    <li class="breadcrumb-item active">New</li>
-                </ol>
+            <div class="col-sm-1">
+                <a href="<?= base_url($link); ?>" class="btn btn-secondary">Batal</a>
             </div>
             <!-- /.col -->
         </div><!-- /.row -->
@@ -77,7 +73,6 @@ $data_user = getProfile();
                                 </div>
                             <?php endif; ?>
                             <button type="submit" class="btn btn-primary">Submit</button>
-                            <a href="<?= base_url($link); ?>" class="btn btn-secondary">Batal</a>
                         </form>
                     </div>
                 </div>

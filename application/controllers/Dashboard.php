@@ -19,6 +19,7 @@ class Dashboard extends CI_Controller
     $id_bimbel = $this->session->userdata('id_bimbel');
     $id_role = $this->session->userdata('id_role');
     if ($id_role == 1) {
+      $totalNominal = $this->model->getNom($id_bimbel)['total_nominal'];
       $totalNominalToday = $this->model->getNom(1, $today)['total_nominal'];
       $trxToday = $this->model->getTrx(1, $today)['trx'];
       $siswa = $this->model->getSiswa();

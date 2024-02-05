@@ -11,7 +11,7 @@ $data_user = getProfile();
   <!-- Brand Logo -->
   <a href="dashboard" class="brand-link">
     <img src="<?= base_url(); ?>assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-    <span class="brand-text font-weight-light">Bimbel ABC</span>
+    <span class="brand-text font-weight-light">Rumah Pintar Alfarizqi</span>
   </a>
 
   <!-- Sidebar -->
@@ -59,16 +59,17 @@ $data_user = getProfile();
               </p>
             </a>
           </li>
-        <?php else : ?>
-          <li class="nav-item">
-            <a href="<?= base_url('siswa'); ?>" class="nav-link <?= ($segment == 'siswa') ? 'active' : ''; ?>">
-              <i class="nav-icon fas fa-graduation-cap"></i>
-              <p>
-                Siswa
-              </p>
-            </a>
-          </li>
+          
         <?php endif; ?>
+
+        <li class="nav-item">
+          <a href="<?= base_url('siswa'); ?>" class="nav-link <?= ($segment == 'siswa') ? 'active' : ''; ?>">
+            <i class="nav-icon fas fa-graduation-cap"></i>
+            <p>
+                Siswa
+            </p>
+          </a>
+        </li>
 
         <li class="nav-item">
             <a href="<?= base_url('spp'); ?>" class="nav-link <?= ($segment == 'spp') ? 'active' : ''; ?>">

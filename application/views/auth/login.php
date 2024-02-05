@@ -1,7 +1,7 @@
 <body class="hold-transition login-page">
   <div class="login-box">
     <div class="login-logo">
-      <a>Bimbel <b>ABC</b></a>
+      <a>Rumah Pintar <b>Alfarizqi</b></a>
     </div>
     <!-- /.login-logo -->
     <div class="card">

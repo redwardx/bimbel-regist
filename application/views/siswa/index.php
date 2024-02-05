@@ -2,14 +2,11 @@
 <div class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
-            <div class="col-sm-6">
+            <div class="col-sm-11">
                 <h1 class="m-0">Kelola <?= $title; ?></h1>
             </div><!-- /.col -->
-            <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="<?= base_url(); ?>">Home</a></li>
-                    <li class="breadcrumb-item">Kelola <?= $title; ?></li>
-                </ol>
+            <div class="col-sm-1">
+                <a href="<?= base_url($link . '/new'); ?>" class="btn btn-primary btn-sm mb-2">Tambah</a>
             </div>
             <!-- /.col -->
         </div><!-- /.row -->
@@ -23,7 +20,6 @@
         <!-- Small boxes (Stat box) -->
         <div class="row">
             <div class="col-12">
-                <a href="<?= base_url($link . '/new'); ?>" class="btn btn-primary btn-sm mb-2">Tambah</a>
                 <div class="card">
                     <div class="card-header">
                         Kelola <?= $title; ?>

@@ -22,7 +22,7 @@
     <!-- Small boxes (Stat box) -->
     <div class="row">
       <?php if ($this->session->userdata('id_role') == 1) : ?>
-        <div class="col-lg-3 col-6">
+        <div class="col-lg-2 col-6">
           <!-- small box -->
           <div class="small-box bg-info">
             <div class="inner">
@@ -36,25 +36,8 @@
             <a href="bimbel" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
-      <?php else : ?>
-        <div class="col-lg-3 col-6">
-          <!-- small box -->
-          <div class="small-box bg-info">
-            <div class="inner">
-              <h3>Rp. <?php echo $totalNominal; ?></h3>
-
-              <p>Total Pendapatan</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-bag"></i>
-            </div>
-            <a href="spp" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-      <?php endif; ?>
-
-      <!-- ./col -->
-      <div class="col-lg-3 col-6">
+        <!-- ./col -->
+      <div class="col-lg-2 col-6">
         <!-- small box -->
         <div class="small-box bg-success">
           <div class="inner">
@@ -66,6 +49,20 @@
             <i class="ion ion-stats-bars"></i>
           </div>
           <a href="siswa" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-6">
+        <!-- small box -->
+        <div class="small-box bg-danger">
+          <div class="inner">
+            <h3><?php echo $trxToday; ?></h3>
+
+            <p>Input Hari Ini</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-pie-graph"></i>
+          </div>
+          <a href="spp" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
         </div>
       </div>
       <!-- ./col -->
@@ -84,21 +81,82 @@
         </div>
       </div>
       <!-- ./col -->
+      
       <div class="col-lg-3 col-6">
-        <!-- small box -->
-        <div class="small-box bg-danger">
-          <div class="inner">
-            <h3><?php echo $trxToday; ?></h3>
+          <!-- small box -->
+          <div class="small-box bg-primary">
+            <div class="inner">
+              <h3>Rp. <?php echo $totalNominal; ?></h3>
 
-            <p>Input Hari Ini</p>
+              <p>Total Pendapatan</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-bag"></i>
+            </div>
+            <a href="spp" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
-          <div class="icon">
-            <i class="ion ion-pie-graph"></i>
-          </div>
-          <a href="spp" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
         </div>
-      </div>
       <!-- ./col -->
+      <?php else : ?>
+        <div class="col-lg-3 col-6">
+          <!-- small box -->
+          <div class="small-box bg-success">
+            <div class="inner">
+              <h3><?php echo $siswaCount; ?></h3>
+
+              <p>Jumlah Siswa</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-stats-bars"></i>
+            </div>
+            <a href="siswa" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-6">
+          <!-- small box -->
+          <div class="small-box bg-danger">
+            <div class="inner">
+              <h3><?php echo $trxToday; ?></h3>
+
+              <p>Input Hari Ini</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-pie-graph"></i>
+            </div>
+            <a href="spp" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-6">
+          <!-- small box -->
+          <div class="small-box bg-warning">
+            <div class="inner">
+              <h3>Rp. <?php echo !empty($totalNominalToday) ? $totalNominalToday : '0'; ?></h3>
+
+              <p>Pendapatan Hari Ini</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-person-add"></i>
+            </div>
+            <a href="spp" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-6">
+          <!-- small box -->
+          <div class="small-box bg-info">
+            <div class="inner">
+              <h3>Rp. <?php echo $totalNominal; ?></h3>
+
+              <p>Total Pendapatan</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-bag"></i>
+            </div>
+            <a href="spp" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+      <?php endif; ?>
     </div>
     <!-- /.row -->
 
