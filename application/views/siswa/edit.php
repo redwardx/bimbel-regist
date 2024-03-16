@@ -29,19 +29,52 @@
                         Edit <?= $title; ?>
                     </div>
                     <div class="card-body">
-                        <form action="<?= base_url($link . '/' . $data['id_bimbel']); ?>" method="post" enctype="multipart/form-data">
+                        <form action="<?= base_url($link . '/' . $data['id_siswa']); ?>" method="post" enctype="multipart/form-data">
                             <input type='hidden' name='_method' value='PUT' />
-                            
                             <div class="form-group">
-                                <label for="nama_bimbel">Nama Bimbel</label>
-                                <input type="text" class="form-control" id="nama_bimbel" name="nama_bimbel" value="<?= $data['nama_bimbel']; ?>" required placeholder="nama_bimbel">
+                                <label for="nisn">Nama Siswa</label>
+                                <input type="text" class="form-control" id="nisn" name="nisn" value="<?= $data['nisn']; ?>" required placeholder="nisn">
                             </div>
-                            <?= form_error('nama_bimbel', '<div class="error text-danger mb-2" style="margin-top: -15px">', '</div>'); ?>
+                            <?= form_error('nisn', '<div class="error text-danger mb-2" style="margin-top: -15px">', '</div>'); ?>
                             <div class="form-group">
-                                <label for="cabang">Cabang</label>
-                                <input type="text" class="form-control" id="cabang" name="cabang" value="<?= $data['cabang']; ?>" required placeholder="cabang">
+                                <label for="nama_siswa">Nama Siswa</label>
+                                <input type="text" class="form-control" id="nama_siswa" name="nama_siswa" value="<?= $data['nama_siswa']; ?>" required placeholder="nama_siswa">
                             </div>
-                            <?= form_error('cabang', '<div class="error text-danger mb-2" style="margin-top: -15px">', '</div>'); ?>
+                            <?= form_error('nama_siswa', '<div class="error text-danger mb-2" style="margin-top: -15px">', '</div>'); ?>
+                            <div class="form-group">
+                                <label for="alamat">Alamat</label>
+                                <input type="text" class="form-control" id="alamat" name="alamat" value="<?= $data['alamat']; ?>" required placeholder="alamat">
+                            </div>
+                            <?= form_error('alamat', '<div class="error text-danger mb-2" style="margin-top: -15px">', '</div>'); ?>
+                            <?php if ($this->session->userdata('id_role') == 1) : ?>
+                                <div class="form-group">
+                                    <label for="bimbel">Bimbel</label>
+                                    <select name="id_bimbel" id="id_bimbel" class="form-control select2">
+                                        <?php foreach ($bimbel as $d) : ?>
+                                            <?php if ($d['id_bimbel'] == $data['id_bimbel']) : ?>
+                                                <option selected value="<?= $d['id_bimbel']; ?>"><?= $d['nama_bimbel']; ?> - <?= $d['cabang']; ?></option>
+                                            <?php else : ?>
+                                                <option value="<?= $d['id_bimbel']; ?>"><?= $d['nama_bimbel']; ?> - <?= $d['cabang']; ?></option>
+                                            <?php endif; ?>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                                <?= form_error('id_bimbel', '<div class="error text-danger mb-2" style="margin-top: -15px">', '</div>'); ?>
+                            <?php else : ?>
+                                <div class="form-group">
+                                    <label for="bimbel">Bimbel</label>
+                                    <select name="nama_bimbel" id="nama_bimbel" class="form-control select2" disabled>
+                                        <?php foreach ($bimbel as $d) : ?>
+                                            <?php if ($d['id_bimbel'] == $data_user['id_bimbel']) : ?>
+                                                <option value="<?= $d['id_bimbel']; ?>" selected><?= $d['nama_bimbel']; ?> - <?= $d['cabang']; ?></option>
+                                            <?php else : ?>
+                                                <option value="<?= $d['id_bimbel']; ?>"><?= $d['nama_bimbel']; ?> - <?= $d['cabang']; ?></option>
+                                            <?php endif; ?>
+                                        <?php endforeach; ?>
+                                    </select>
+                                    <input type="hidden" name="id_bimbel" id="id_bimbel" value="<?= $data_user['id_bimbel'] ?>" />
+                                </div>
+                            <?php endif; ?>
                             
                             <button type="submit" class="btn btn-primary">Submit</button>
                             <a href="<?= base_url($link); ?>" class="btn btn-secondary">Batal</a>

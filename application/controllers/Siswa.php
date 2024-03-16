@@ -75,6 +75,7 @@ class Siswa extends CI_Controller
         $data['title'] = $this->title;
         $data['link'] = $this->link;
         $data['data'] = $result;
+        $data['bimbel'] = $this->model->getBimbel();
         $this->template->load('template/index', $this->view . '/edit', $data);
     }
 
@@ -89,12 +90,16 @@ class Siswa extends CI_Controller
         }
 
         $data = [
-            'nama_bimbel' => $this->input->post('nama_bimbel', true),
-            'cabang' => $this->input->post('cabang', true),
+            'nisn' => $this->input->post('nisn', true),
+            'nama_siswa' => $this->input->post('nama_siswa', true),
+            'alamat' => $this->input->post('alamat', true),
+            'id_bimbel' => $this->input->post('id_bimbel', true),
         ];
 
-        $this->form_validation->set_rules('nama_bimbel', 'Nama Bimbel', 'required');
-        $this->form_validation->set_rules('cabang', 'Cabang', 'required');
+        $this->form_validation->set_rules('nisn', 'NISN Siswa', 'required');
+        $this->form_validation->set_rules('nama_siswa', 'Nama Siswa', 'required');
+        $this->form_validation->set_rules('alamat', 'Alamat', 'required');
+        $this->form_validation->set_rules('id_bimbel', 'Bimbel', 'required');
 
 
         if ($this->form_validation->run() == FALSE) {
