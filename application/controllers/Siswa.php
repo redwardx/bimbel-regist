@@ -20,7 +20,7 @@ class Siswa extends CI_Controller
         $id_bimbel = $this->session->userdata('id_bimbel');
         $id_role = $this->session->userdata('id_role');
         if ($id_role == 1) {
-            $data['data'] = $this->model->select('tb_siswa.*')->findAll();
+            $data['data'] = $this->model->select('tb_siswa.*, nama_bimbel, cabang')->join('tb_bimbel', 'tb_bimbel.id_bimbel = tb_siswa.id_bimbel')->findAll();
         }
         if ($id_role == 2 && $id_bimbel != null) {
             $data['data'] = $this->model->select('tb_siswa.*')->where('id_bimbel', $id_bimbel)->findAll();
@@ -41,6 +41,8 @@ class Siswa extends CI_Controller
     {
         $this->form_validation->set_rules('nisn', 'NISN', 'required|is_unique[tb_siswa.nisn]');
         $this->form_validation->set_rules('nama_siswa', 'Nama Siswa', 'required');
+        $this->form_validation->set_rules('nama_panggilan', 'Nama Panggilan', 'required');
+        $this->form_validation->set_rules('telp_ortu', 'No Telp. Orang Tua', 'required');
         $this->form_validation->set_rules('alamat', 'Alamat', 'required');
         $this->form_validation->set_rules('id_bimbel', 'Id Bimbel', 'required');
 
@@ -50,6 +52,8 @@ class Siswa extends CI_Controller
             $data = [
                 'nisn' => $this->input->post('nisn', true),
                 'nama_siswa' => $this->input->post('nama_siswa', true),
+                'nama_panggilan' => $this->input->post('nama_panggilan', true),
+                'telp_ortu' => $this->input->post('telp_ortu', true),
                 'alamat' => $this->input->post('alamat', true),
                 'id_bimbel' => $this->input->post('id_bimbel', true),
             ];
@@ -92,12 +96,16 @@ class Siswa extends CI_Controller
         $data = [
             'nisn' => $this->input->post('nisn', true),
             'nama_siswa' => $this->input->post('nama_siswa', true),
+            'nama_panggilan' => $this->input->post('nama_panggilan', true),
+            'telp_ortu' => $this->input->post('telp_ortu', true),
             'alamat' => $this->input->post('alamat', true),
             'id_bimbel' => $this->input->post('id_bimbel', true),
         ];
 
         $this->form_validation->set_rules('nisn', 'NISN Siswa', 'required');
         $this->form_validation->set_rules('nama_siswa', 'Nama Siswa', 'required');
+        $this->form_validation->set_rules('nama_panggilan', 'Nama Panggilan', 'required');
+        $this->form_validation->set_rules('telp_ortu', 'No Telp. Orang Tua', 'required');
         $this->form_validation->set_rules('alamat', 'Alamat', 'required');
         $this->form_validation->set_rules('id_bimbel', 'Bimbel', 'required');
 

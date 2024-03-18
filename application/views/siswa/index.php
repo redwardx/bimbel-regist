@@ -31,6 +31,7 @@
                                     <tr>
                                         <th>NISN</th>
                                         <th>Nama Lengkap</th>
+                                        <th>Bimbel</th>
                                         <th>Alamat</th>
                                         <th> </th>
                                     </tr>
@@ -41,6 +42,7 @@
                                         <tr>
                                             <td><?= $d['nisn']; ?></td>
                                             <td><?= $d['nama_siswa']; ?></td>
+                                            <td><?= $d['nama_bimbel']; ?> - <?= $d['cabang']; ?></td>
                                             <td><?= $d['alamat']; ?></td>
                                             <td>
                                                 <a class="btn btn-warning btn-sm mb-2" href="<?= base_url($link . '/' . $d['id_siswa'] . '/edit'); ?>">Edit</a>

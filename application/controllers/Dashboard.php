@@ -20,6 +20,7 @@ class Dashboard extends CI_Controller
     $id_role = $this->session->userdata('id_role');
     if ($id_role == 1) {
       $totalNominal = $this->model->getNom($id_bimbel)['total_nominal'];
+      $totalNominalMonthly = $this->model->getNom($id_bimbel, date('Y-m'))['total_nominal'];
       $totalNominalToday = $this->model->getNom(1, $today)['total_nominal'];
       $trxToday = $this->model->getTrx(1, $today)['trx'];
       $siswa = $this->model->getSiswa();
@@ -35,6 +36,7 @@ class Dashboard extends CI_Controller
     if ($id_role == 2 && $id_bimbel != null) {
       $totalNominal = $this->model->getNom($id_bimbel)['total_nominal'];
       $totalNominalToday = $this->model->getNom($id_bimbel, $today)['total_nominal'];
+      $totalNominalMonthly = $this->model->getNom($id_bimbel, date('Y-m'))['total_nominal'];
       $trxToday = $this->model->getTrx($id_bimbel, $today)['trx'];
       $siswa = $this->model->where('tb_siswa.id_bimbel', $id_bimbel)->getSiswa();
       $siswaCount = count($siswa);

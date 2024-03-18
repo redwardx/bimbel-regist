@@ -42,6 +42,18 @@ $data_user = getProfile();
                             <?= form_error('nama_siswa', '<div class="error text-danger mb-2" style="margin-top: -15px">', '</div>'); ?>
 
                             <div class="form-group">
+                                <label for="nama_panggilan">Nama Panggilan</label>
+                                <input type="text" class="form-control" id="nama_panggilan" name="nama_panggilan" placeholder="Nama panggilan" value="<?= set_value('nama_panggilan'); ?>">
+                            </div>
+                            <?= form_error('nama_panggilan', '<div class="error text-danger mb-2" style="margin-top: -15px">', '</div>'); ?>
+
+                            <div class="form-group">
+                                <label for="telp_ortu">No Telp. Orang tua</label>
+                                <input type="text" class="form-control" id="telp_ortu" name="telp_ortu" placeholder="No Telp. Orang tua" value="<?= set_value('telp_ortu'); ?>">
+                            </div>
+                            <?= form_error('telp_ortu', '<div class="error text-danger mb-2" style="margin-top: -15px">', '</div>'); ?>
+
+                            <div class="form-group">
                                 <label for="alamat">Alamat</label>
                                 <input type="text" class="form-control" id="alamat" name="alamat" placeholder="alamat" value="<?= set_value('alamat'); ?>">
                             </div>

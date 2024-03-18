@@ -33,14 +33,24 @@
                             <input type='hidden' name='_method' value='PUT' />
                             <div class="form-group">
                                 <label for="nisn">Nama Siswa</label>
-                                <input type="text" class="form-control" id="nisn" name="nisn" value="<?= $data['nisn']; ?>" required placeholder="nisn">
+                                <input type="text" class="form-control" id="nisn" name="nisn" value="<?= $data['nisn']; ?>" required placeholder="NISN">
                             </div>
                             <?= form_error('nisn', '<div class="error text-danger mb-2" style="margin-top: -15px">', '</div>'); ?>
                             <div class="form-group">
                                 <label for="nama_siswa">Nama Siswa</label>
-                                <input type="text" class="form-control" id="nama_siswa" name="nama_siswa" value="<?= $data['nama_siswa']; ?>" required placeholder="nama_siswa">
+                                <input type="text" class="form-control" id="nama_siswa" name="nama_siswa" value="<?= $data['nama_siswa']; ?>" required placeholder="Nama Siswa">
                             </div>
                             <?= form_error('nama_siswa', '<div class="error text-danger mb-2" style="margin-top: -15px">', '</div>'); ?>
+                            <div class="form-group">
+                                <label for="nama_panggilan">Nama panggilan</label>
+                                <input type="text" class="form-control" id="nama_panggilan" name="nama_panggilan" value="<?= $data['nama_panggilan']; ?>" required placeholder="nama panggilan">
+                            </div>
+                            <?= form_error('nama_panggilan', '<div class="error text-danger mb-2" style="margin-top: -15px">', '</div>'); ?>
+                            <div class="form-group">
+                                <label for="telp_ortu">No Telp. Orang tua</label>
+                                <input type="number" class="form-control" id="telp_ortu" name="telp_ortu" value="<?= $data['telp_ortu']; ?>" required placeholder="No Telp. Orang tua">
+                            </div>
+                            <?= form_error('telp_ortu', '<div class="error text-danger mb-2" style="margin-top: -15px">', '</div>'); ?>
                             <div class="form-group">
                                 <label for="alamat">Alamat</label>
                                 <input type="text" class="form-control" id="alamat" name="alamat" value="<?= $data['alamat']; ?>" required placeholder="alamat">

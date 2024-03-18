@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 31 Jan 2024 pada 12.57
+-- Waktu pembuatan: 18 Mar 2024 pada 11.59
 -- Versi server: 10.4.27-MariaDB
 -- Versi PHP: 8.2.0
 
@@ -76,6 +76,8 @@ CREATE TABLE `tb_siswa` (
   `id_siswa` int(11) NOT NULL,
   `nisn` int(11) NOT NULL,
   `nama_siswa` varchar(250) NOT NULL,
+  `nama_panggilan` varchar(50) NOT NULL,
+  `telp_ortu` varchar(15) NOT NULL,
   `alamat` text NOT NULL,
   `id_bimbel` int(11) NOT NULL,
   `created_at` datetime DEFAULT NULL,
@@ -87,9 +89,9 @@ CREATE TABLE `tb_siswa` (
 -- Dumping data untuk tabel `tb_siswa`
 --
 
-INSERT INTO `tb_siswa` (`id_siswa`, `nisn`, `nama_siswa`, `alamat`, `id_bimbel`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 244123456, 'Radja', 'Jl Borobudur', 4, NULL, NULL, NULL),
-(2, 141249821, 'Parjo', 'Jl Borobudur no 1', 6, NULL, NULL, NULL);
+INSERT INTO `tb_siswa` (`id_siswa`, `nisn`, `nama_siswa`, `nama_panggilan`, `telp_ortu`, `alamat`, `id_bimbel`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 244123456, 'Radja', '', '', 'Jl Borobudur', 4, NULL, NULL, NULL),
+(2, 141249821, 'Parjo', 'Par', '08946723723', 'Jl Borobudur no 1', 6, NULL, '2024-03-18 16:54:41', NULL);
 
 -- --------------------------------------------------------
 
@@ -113,7 +115,8 @@ CREATE TABLE `tb_spp` (
 
 INSERT INTO `tb_spp` (`id_spp`, `id_siswa`, `id_user`, `id_bimbel`, `nominal`, `bukti`, `tgl_input`) VALUES
 (3, 2, 2, 6, 120000, '', '2024-01-31 06:45:42'),
-(5, 1, 5, 4, 1240000, 'kambing.jpg', '2024-01-31 06:45:42');
+(5, 1, 5, 4, 1240000, 'kambing.jpg', '2024-01-31 06:45:42'),
+(6, 1, 1, 4, 130000, 'kambing1.jpg', '2024-02-03 10:30:59');
 
 -- --------------------------------------------------------
 
@@ -213,7 +216,7 @@ ALTER TABLE `tb_siswa`
 -- AUTO_INCREMENT untuk tabel `tb_spp`
 --
 ALTER TABLE `tb_spp`
-  MODIFY `id_spp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_spp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_user`

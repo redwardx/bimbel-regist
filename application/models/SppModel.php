@@ -59,7 +59,7 @@ class SppModel extends TabModel
         return $this->db->get('tb_spp')->result_array();
     }
 
-    public function getNom($id_bimbel = 1, $tanggal = null)
+    public function getNom($id_bimbel = 1, $tanggal = null, $month = null)
     {
         $this->db->select('tb_spp.*, SUM(nominal) as total_nominal');
         if ($tanggal != null) {
@@ -69,6 +69,11 @@ class SppModel extends TabModel
         if ($id_bimbel != 1) {
             $this->db->where('tb_spp.id_bimbel', $id_bimbel);
         }
+
+        if ($month != null) {
+            $this->db->where("DATE_FORMAT(tgl_input, '%Y-%m')", $month);
+        }
+
         return $this->db->get('tb_spp')->row_array();
     }
 

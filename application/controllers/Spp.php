@@ -21,10 +21,10 @@ class Spp extends CI_Controller
         $id_bimbel = $this->session->userdata('id_bimbel');
         $id_role = $this->session->userdata('id_role');
         if ($id_role == 1) {
-            $data['data'] = $this->model->select('tb_spp.*, nisn, nama_siswa, nama_bimbel, cabang')->join('tb_siswa', 'tb_siswa.id_siswa = tb_spp.id_siswa')->join('tb_bimbel', 'tb_bimbel.id_bimbel = tb_spp.id_bimbel')->findAll();
+            $data['data'] = $this->model->select('tb_spp.*, nisn, nama_siswa, nama_bimbel, cabang')->join('tb_siswa', 'tb_siswa.id_siswa = tb_spp.id_siswa')->join('tb_bimbel', 'tb_bimbel.id_bimbel = tb_spp.id_bimbel')->orderBy('tb_spp.tgl_input', 'DESC')->findAll();
         }
         if ($id_role == 2 && $id_bimbel != null) {
-            $data['data'] = $this->model->select('tb_spp.*, nisn, nama_siswa, nama_bimbel, cabang')->join('tb_siswa', 'tb_siswa.id_siswa = tb_spp.id_siswa')->join('tb_bimbel', 'tb_bimbel.id_bimbel = tb_spp.id_bimbel')->where('tb_siswa.id_bimbel', $id_bimbel)->findAll();
+            $data['data'] = $this->model->select('tb_spp.*, nisn, nama_siswa, nama_bimbel, cabang')->join('tb_siswa', 'tb_siswa.id_siswa = tb_spp.id_siswa')->join('tb_bimbel', 'tb_bimbel.id_bimbel = tb_spp.id_bimbel')->where('tb_siswa.id_bimbel', $id_bimbel)->orderBy('tb_spp.tgl_input', 'DESC')->findAll();
         }
         $this->template->load('template/index', $this->view . '/index', $data);
     }

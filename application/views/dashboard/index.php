@@ -22,7 +22,7 @@
     <!-- Small boxes (Stat box) -->
     <div class="row">
       <?php if ($this->session->userdata('id_role') == 1) : ?>
-        <div class="col-lg-2 col-6">
+        <div class="col-lg-4 col-6">
           <!-- small box -->
           <div class="small-box bg-info">
             <div class="inner">
@@ -37,7 +37,7 @@
           </div>
         </div>
         <!-- ./col -->
-      <div class="col-lg-2 col-6">
+      <div class="col-lg-4 col-6">
         <!-- small box -->
         <div class="small-box bg-success">
           <div class="inner">
@@ -51,7 +51,7 @@
           <a href="siswa" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
         </div>
       </div>
-      <div class="col-lg-2 col-6">
+      <div class="col-lg-4 col-6">
         <!-- small box -->
         <div class="small-box bg-danger">
           <div class="inner">
@@ -70,9 +70,24 @@
         <!-- small box -->
         <div class="small-box bg-warning">
           <div class="inner">
-            <h3>Rp. <?php echo !empty($totalNominalToday) ? $totalNominalToday : '0'; ?></h3>
+            <h3>Rp. <?= !empty($totalNominalToday) ? number_format($totalNominalToday, 0, ',', '.') : '0'; ?></h3>
 
             <p>Pendapatan Hari Ini</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-person-add"></i>
+          </div>
+          <a href="spp" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+      </div>
+      <!-- ./col -->
+      <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-secondary">
+          <div class="inner">
+            <h3>Rp. <?= !empty($totalNominalMonthly) ? number_format($totalNominalMonthly, 0, ',', '.') : '0'; ?></h3>
+
+            <p>Pendapatan Bulan Ini</p>
           </div>
           <div class="icon">
             <i class="ion ion-person-add"></i>
@@ -86,7 +101,7 @@
           <!-- small box -->
           <div class="small-box bg-primary">
             <div class="inner">
-              <h3>Rp. <?php echo $totalNominal; ?></h3>
+            <h3>Rp. <?= number_format($totalNominal,0,',','.'); ?></h3>
 
               <p>Total Pendapatan</p>
             </div>
@@ -131,7 +146,7 @@
           <!-- small box -->
           <div class="small-box bg-warning">
             <div class="inner">
-              <h3>Rp. <?php echo !empty($totalNominalToday) ? $totalNominalToday : '0'; ?></h3>
+              <h3>Rp. <?= !empty($totalNominalToday) ? number_format($totalNominalToday, 0, ',', '.') : '0'; ?></h3>
 
               <p>Pendapatan Hari Ini</p>
             </div>
@@ -142,11 +157,26 @@
           </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-3 col-6">
+        <div class="col-lg-4 col-6">
+        <!-- small box -->
+        <div class="small-box bg-secondary">
+          <div class="inner">
+            <h3>Rp. <?= !empty($totalNominalMonthly) ? number_format($totalNominalMonthly, 0, ',', '.') : '0'; ?></h3>
+
+            <p>Pendapatan Bulan Ini</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-person-add"></i>
+          </div>
+          <a href="spp" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+      </div>
+      <!-- ./col -->
+        <div class="col-lg-4 col-6">
           <!-- small box -->
           <div class="small-box bg-info">
             <div class="inner">
-              <h3>Rp. <?php echo $totalNominal; ?></h3>
+              <h3>Rp. <?= number_format($totalNominal,0,',','.'); ?></h3>
 
               <p>Total Pendapatan</p>
             </div>

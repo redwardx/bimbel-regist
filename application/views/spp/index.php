@@ -48,7 +48,7 @@
                                             <td><?= $d['nama_siswa']; ?></td>
                                             <td><?= $d['nama_bimbel']; ?></td>
                                             <td><?= $d['cabang']; ?></td>
-                                            <td><?= $d['nominal']; ?></td>
+                                            <td>Rp. <?= number_format($d['nominal'], 0, ',', '.'); ?></td>
                                             <td><?= $d['tgl_input']; ?></td>
                                             <td>
                                                 <a class="btn btn-outline-info btn-sm mb-2" href="<?= base_url(); ?>assets/uploads/bukti/<?= $d['bukti']; ?>">Lihat Bukti</a>
