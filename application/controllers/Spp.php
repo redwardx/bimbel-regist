@@ -117,34 +117,34 @@ class Spp extends CI_Controller
         $pdf = new FPDF('P', 'mm',array(130,150));
                 $pdf->AddPage();
                 $pdf->SetFont('Arial','B',16);
-                $pdf->Cell(0,7,'BIMBEL ABC',0,1,'C');
+                $pdf->Cell(0,7,'Rumah Pintar Alfarizqi',0,1,'C');
                 $pdf->Ln(7);
                 $pdf->SetFont('Arial','B',16);
-                $pdf->Cell(0,7,'Invoice',0,1,'C');
+                $pdf->Cell(0,7,'Nota Pembayaran',0,1,'C');
                 $pdf->Cell(10,7,'',0,1);
                 $pdf->Ln(10);
                 if ($result) {
                 $pdf->SetFont('Arial','B',10);
-                $pdf->Cell(14,6,'NISN',0,0,'C');
+                $pdf->Cell(50,6,'NISN',0,0,'L');
                 $pdf->SetFont('Arial','',10);
-                $pdf->Cell(106,6,$result['nisn'],0,1,'C');
+                $pdf->Cell(80,6,$result['nisn'],0,1,'L');
                 $pdf->SetFont('Arial','B',10);
-                $pdf->Cell(30,6,'Nama Lengkap',0,0,'C');
+                $pdf->Cell(50,6,'Nama Lengkap',0,0,'L');
                 $pdf->SetFont('Arial','',10);
-                $pdf->Cell(65,6,$result['nama_siswa'],0,1,'C');
+                $pdf->Cell(80,6,$result['nama_siswa'],0,1,'L');
                 $pdf->SetFont('Arial','B',10);
-                $pdf->Cell(28,6,'Alamat Siswa',0,0,'C');
+                $pdf->Cell(50,6,'Alamat Siswa',0,0,'L');
                 $pdf->SetFont('Arial','',10);
-                $pdf->Cell(89,6,$result['alamat'],0,1,'C');
+                $pdf->Cell(80,6,$result['alamat'],0,1,'L');
                 $pdf->SetFont('Arial','B',10);
-                $pdf->Cell(17,6,'Bimbel',0,0,'C'); // Sel pertama dengan teks "Bimbel"
+                $pdf->Cell(50,6,'Bimbel',0,0,'L');
                 $pdf->SetFont('Arial','',10);
-                $pdf->Cell(104,6,$result['nama_bimbel'],0,0,'C'); // Sel kedua dengan nama bimbel (87 = 104 - 17)
-                $pdf->Cell(-60,6,$result['cabang'],0,1,'C');
+                $pdf->Cell(80,6,$result['nama_bimbel'],0,0,'L');
+                $pdf->Cell(-90,6,$result['cabang'],0,1,'C');
                 $pdf->SetFont('Arial','B',10);
-                $pdf->Cell(28,6,'Tanggal Input',0,0,'C');
+                $pdf->Cell(50,6,'Tanggal Input',0,0,'L');
                 $pdf->SetFont('Arial','',10);
-                $pdf->Cell(94,6,$result['tgl_input'],0,1,'C');
+                $pdf->Cell(80,6,$result['tgl_input'],0,1,'L');
                 $pdf->Ln(5);
                 $pdf->SetFont('Arial','',10);
             $pdf->Cell(70,6,'Jumlah Tagihan',1,0);
