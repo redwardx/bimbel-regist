@@ -30,8 +30,8 @@ $data_user = getProfile();
                     <div class="card-body">
                         <form action="<?= base_url($link); ?>" method="post" enctype="multipart/form-data">
                             <div class="form-group">
-                                <label for="nisn">NISN</label>
-                                <input type="text" class="form-control" id="nisn" name="nisn" placeholder="NISN Siswa" value="<?= set_value('nisn'); ?>">
+                                <label for="nisn">No. Induk</label>
+                                <input type="text" class="form-control" id="nisn" name="nisn" placeholder="No. Induk Siswa" value="<?= set_value('nisn'); ?>">
                             </div>
                             <?= form_error('nisn', '<div class="error text-danger mb-2" style="margin-top: -15px">', '</div>'); ?>
 

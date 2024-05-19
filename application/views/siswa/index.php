@@ -29,7 +29,7 @@
                             <table class="table table-striped table-bordered" id="table2">
                                 <thead>
                                     <tr>
-                                        <th>NISN</th>
+                                        <th>No. Induk</th>
                                         <th>Nama Lengkap</th>
                                         <th>Bimbel</th>
                                         <th>Alamat</th>

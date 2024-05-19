@@ -65,6 +65,7 @@ class Spp extends CI_Controller
         $this->form_validation->set_rules('id_siswa', 'Id siswa', 'required');
         $this->form_validation->set_rules('id_user', 'Id User', 'required');
         $this->form_validation->set_rules('id_bimbel', 'Id Bimbel', 'required');
+        $this->form_validation->set_rules('bulan', 'Bulan', 'required');
         $this->form_validation->set_rules('nominal', 'Nominal', 'required');
 
         if ($this->form_validation->run() == FALSE) {
@@ -74,6 +75,7 @@ class Spp extends CI_Controller
                 'id_siswa' => $this->input->post('id_siswa', true),
                 'id_user' => $this->input->post('id_user', true),
                 'id_bimbel' => $this->input->post('id_bimbel', true),
+                'bulan' => $this->input->post('bulan', true),
                 'nominal' => $this->input->post('nominal', true),
             ];
             $key_name = 'image';
@@ -118,11 +120,11 @@ class Spp extends CI_Controller
                 $pdf->AddPage();
                 $pdf->SetFont('Arial','B',16);
                 $pdf->Cell(0,7,'Rumah Pintar Alfarizqi',0,1,'C');
-                $pdf->Ln(7);
+                $pdf->Ln(5);
                 $pdf->SetFont('Arial','B',16);
                 $pdf->Cell(0,7,'Nota Pembayaran',0,1,'C');
                 $pdf->Cell(10,7,'',0,1);
-                $pdf->Ln(10);
+                $pdf->Ln(5);
                 if ($result) {
                 $pdf->SetFont('Arial','B',10);
                 $pdf->Cell(50,6,'NISN',0,0,'L');
@@ -139,8 +141,15 @@ class Spp extends CI_Controller
                 $pdf->SetFont('Arial','B',10);
                 $pdf->Cell(50,6,'Bimbel',0,0,'L');
                 $pdf->SetFont('Arial','',10);
-                $pdf->Cell(80,6,$result['nama_bimbel'],0,0,'L');
-                $pdf->Cell(-90,6,$result['cabang'],0,1,'C');
+                $pdf->Cell(80,6,$result['nama_bimbel'],0,1,'L');
+                $pdf->SetFont('Arial', 'B', 10);
+                $pdf->Cell(50, 6, 'Cabang', 0, 0, 'L');
+                $pdf->SetFont('Arial', '', 10);
+                $pdf->Cell(80, 6, $result['cabang'], 0, 1, 'L');
+                $pdf->SetFont('Arial', 'B', 10);
+                $pdf->Cell(50, 6, 'Pembayaran Bulan', 0, 0, 'L');
+                $pdf->SetFont('Arial', '', 10);
+                $pdf->Cell(80, 6, $result['bulan'], 0, 1, 'L');
                 $pdf->SetFont('Arial','B',10);
                 $pdf->Cell(50,6,'Tanggal Input',0,0,'L');
                 $pdf->SetFont('Arial','',10);
@@ -149,7 +158,7 @@ class Spp extends CI_Controller
                 $pdf->SetFont('Arial','',10);
             $pdf->Cell(70,6,'Jumlah Tagihan',1,0);
             $pdf->Cell(40,6,'Rp.'.$result['nominal'],1,1);
-            $pdf->Ln(10);
+            $pdf->Ln(7);
             $pdf->Cell(70,6,' ',0,0);
             $pdf->Cell(40,6,'Petugas',0,1);
             $pdf->Ln(15);

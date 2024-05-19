@@ -51,7 +51,7 @@
                                 <label for="bimbel">Bimbel</label>
                                 <select name="id_bimbel" id="id_bimbel" class="form-control select2">
                                     <?php foreach ($bimbel as $d) : ?>
-                                        <option value="<?= $d['id_bimbel']; ?>"><?= $d['nama_bimbel']; ?> - <?= $d['nama_bimbel']; ?></option>
+                                        <option value="<?= $d['id_bimbel']; ?>"><?= $d['nama_bimbel']; ?> - <?= $d['cabang']; ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>

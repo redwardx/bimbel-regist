@@ -39,7 +39,7 @@ class Siswa extends CI_Controller
 
     public function create()
     {
-        $this->form_validation->set_rules('nisn', 'NISN', 'required|is_unique[tb_siswa.nisn]');
+        $this->form_validation->set_rules('nisn', 'NISN', 'required');
         $this->form_validation->set_rules('nama_siswa', 'Nama Siswa', 'required');
         $this->form_validation->set_rules('nama_panggilan', 'Nama Panggilan', 'required');
         $this->form_validation->set_rules('telp_ortu', 'No Telp. Orang Tua', 'required');

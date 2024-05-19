@@ -32,7 +32,7 @@
                         <form action="<?= base_url($link . '/' . $data['id_siswa']); ?>" method="post" enctype="multipart/form-data">
                             <input type='hidden' name='_method' value='PUT' />
                             <div class="form-group">
-                                <label for="nisn">Nama Siswa</label>
+                                <label for="nisn">No. Induk</label>
                                 <input type="text" class="form-control" id="nisn" name="nisn" value="<?= $data['nisn']; ?>" required placeholder="NISN">
                             </div>
                             <?= form_error('nisn', '<div class="error text-danger mb-2" style="margin-top: -15px">', '</div>'); ?>

@@ -31,7 +31,7 @@ $data_user = getProfile();
                         <form action="<?= base_url($link); ?>" method="post" enctype="multipart/form-data">
                             <input type='hidden' name='_method' value='PUT' />
                             <div class="form-group">
-                                <label for="nisn">NISN</label>
+                                <label for="nisn">No. Induk</label>
                                 <input type="text" class="form-control" id="id_siswa" name="id_siswa" hidden placeholder="nisn" value="<?= $userdata['id_siswa']; ?>">
                                 <input type="text" class="form-control" id="id_user" name="id_user" hidden placeholder="nisn" value="<?= $data_user['id']; ?>">
                                 <input type="text" class="form-control" id="nisn" name="nisn" disabled placeholder="nisn" value="<?= $userdata['nisn']; ?>">
@@ -61,6 +61,25 @@ $data_user = getProfile();
                                 </select>
                             </div>
                             <?= form_error('id_bimbel', '<div class="error text-danger mb-2" style="margin-top: -15px">', '</div>'); ?>
+                            <div class="form-group">
+                                <label for="bulan">Pembayaran untuk Bulan</label>
+                                <select class="form-control" id="bulan" name="bulan" required>
+                                    <option value="" disabled selected>Pilih Bulan</option>
+                                    <option value="Januari">Januari</option>
+                                    <option value="Februari">Februari</option>
+                                    <option value="Maret">Maret</option>
+                                    <option value="April">April</option>
+                                    <option value="Mei">Mei</option>
+                                    <option value="Juni">Juni</option>
+                                    <option value="Juli">Juli</option>
+                                    <option value="Agustus">Agustus</option>
+                                    <option value="September">September</option>
+                                    <option value="Oktober">Oktober</option>
+                                    <option value="November">November</option>
+                                    <option value="Desember">Desember</option>
+                                </select>
+                            </div>
+                            <?= form_error('bulan', '<div class="error text-danger mb-2" style="margin-top: -15px">', '</div>'); ?>
                             <div class="form-group">
                                 <label for="nominal">Nominal</label>
                                 <div class="input-group">

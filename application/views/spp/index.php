@@ -30,12 +30,13 @@
                                 <thead>
                                     <tr>
                                         <th>No.</th>
-                                        <th>NISN</th>
+                                        <th>No. Induk</th>
                                         <th>Nama Lengkap</th>
                                         <th>Bimbel</th>
                                         <th>Cabang</th>
                                         <th>Nominal</th>
-                                        <th>Tanggal</th>
+                                        <th>Bulan Tagihan</th>
+                                        <th>Tanggal Input</th>
                                         <th> </th>
                                     </tr>
                                 </thead>
@@ -49,6 +50,7 @@
                                             <td><?= $d['nama_bimbel']; ?></td>
                                             <td><?= $d['cabang']; ?></td>
                                             <td>Rp. <?= number_format($d['nominal'], 0, ',', '.'); ?></td>
+                                            <td><?= $d['bulan']; ?></td>
                                             <td><?= $d['tgl_input']; ?></td>
                                             <td>
                                                 <a class="btn btn-outline-info btn-sm mb-2" href="<?= base_url(); ?>assets/uploads/bukti/<?= $d['bukti']; ?>">Lihat Bukti</a>
