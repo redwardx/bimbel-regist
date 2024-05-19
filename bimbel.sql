@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 18 Mar 2024 pada 11.59
+-- Waktu pembuatan: 19 Bulan Mei 2024 pada 16.40
 -- Versi server: 10.4.27-MariaDB
 -- Versi PHP: 8.2.0
 
@@ -105,6 +105,7 @@ CREATE TABLE `tb_spp` (
   `id_user` int(11) NOT NULL,
   `id_bimbel` int(11) NOT NULL,
   `nominal` float NOT NULL,
+  `bulan` varchar(50) NOT NULL,
   `bukti` varchar(128) NOT NULL,
   `tgl_input` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -113,10 +114,11 @@ CREATE TABLE `tb_spp` (
 -- Dumping data untuk tabel `tb_spp`
 --
 
-INSERT INTO `tb_spp` (`id_spp`, `id_siswa`, `id_user`, `id_bimbel`, `nominal`, `bukti`, `tgl_input`) VALUES
-(3, 2, 2, 6, 120000, '', '2024-01-31 06:45:42'),
-(5, 1, 5, 4, 1240000, 'kambing.jpg', '2024-01-31 06:45:42'),
-(6, 1, 1, 4, 130000, 'kambing1.jpg', '2024-02-03 10:30:59');
+INSERT INTO `tb_spp` (`id_spp`, `id_siswa`, `id_user`, `id_bimbel`, `nominal`, `bulan`, `bukti`, `tgl_input`) VALUES
+(3, 2, 2, 6, 120000, '', '', '2024-01-31 06:45:42'),
+(5, 1, 5, 4, 1240000, '', 'kambing.jpg', '2024-01-31 06:45:42'),
+(6, 1, 1, 4, 130000, '', 'kambing1.jpg', '2024-02-03 10:30:59'),
+(8, 2, 1, 6, 450000, 'Juni', 'kambing2.jpg', '2024-05-19 10:49:45');
 
 -- --------------------------------------------------------
 
@@ -216,7 +218,7 @@ ALTER TABLE `tb_siswa`
 -- AUTO_INCREMENT untuk tabel `tb_spp`
 --
 ALTER TABLE `tb_spp`
-  MODIFY `id_spp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_spp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_user`
